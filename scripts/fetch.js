@@ -1,5 +1,5 @@
 async function fetchArticles() {
-    const response = await fetch(`${FETCH_API_URL}/article`);
+    const response = await fetch(`${FETCH_API_URL}/article/all`);
     if (!response.ok) {
         throw new Error('Network error!');
     }
@@ -20,4 +20,12 @@ async function fetchDropdownContent() {
         throw new Error('Network error!');
     }
     return response.json();
+}
+async function fetchArticleContent(link){
+    const encodedLink = encodeURIComponent(link);
+    const response = await fetch(`${FETCH_API_URL}/article/content?link=${encodedLink}`)
+    if (!response.ok) {
+        throw new Error("Network error!");
+    }
+    return response.text();
 }

@@ -135,6 +135,9 @@ a {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 999;
 }
 .dialog-hidden {
@@ -200,4 +203,16 @@ a {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    resize: both;
+}
+.modal-body {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
