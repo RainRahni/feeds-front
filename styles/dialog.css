@@ -1,0 +1,82 @@
+.dialog-visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.dialog-hidden {
+    display: none;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    resize: both;
+}
+.modal-body {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+.category {
+    width: fit-content;
+    height: fit-content;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    &:hover {
+        transform: scale(1.1);
+    }
+    font-size: 16px;
+}
+.close-button {
+     background-color: grey;
+     float: right;
+     font-size: 20px;
+     &:hover {
+         color: white;
+         text-decoration: none;
+     }
+ }
+.categoriesButton {
+    width: fit-content;
+    height: fit-content;
+    border: none;
+}
+.categoriesButton img {
+    width: 20px;
+    height: 20px;
+    &:hover {
+        transform: scale(1.1);
+    }
+    position: absolute;
+    top:0;
+    right: 0;
+}
