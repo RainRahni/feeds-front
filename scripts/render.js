@@ -1,7 +1,6 @@
 function renderArticles(articles, feeds) {
     const articlesDiv = document.getElementById('articles');
     articlesDiv.innerHTML = '';
-    console.log(articles);
     articles.forEach(article => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -43,7 +42,6 @@ function renderArticles(articles, feeds) {
         articlesDiv.appendChild(card);
     });
 }
-
 function getColorForFeedId(feedId, feeds) {
     const correspondingFeed = feeds.find(feed => feed.id === feedId);
     return correspondingFeed.hexColor;
@@ -123,4 +121,23 @@ async function openModal(article) {
     overlay.appendChild(modal);
     modal.appendChild(closeButton);
     overlay.style.display = 'flex';
+}
+function renderFeeds(feeds) {
+    const tbody = document.getElementById('feedsTableBody');
+    tbody.innerHTML = '';
+    feeds.forEach(feed => {
+        const row = document.createElement('tr');
+        const titleCell = document.createElement('td');
+        titleCell.textContent = feed.title;
+        row.appendChild(titleCell);
+
+        const linkCell = document.createElement('td');
+        linkCell.textContent = feed.link;
+        row.appendChild(linkCell);
+
+        const colorCell = document.createElement('td');
+        colorCell.textContent = feed.color;
+        row.appendChild(colorCell);
+        tbody.appendChild(row);
+    });
 }

@@ -1,10 +1,12 @@
 window.onload = async function() {
     const articles = await fetchArticles();
     const feeds = await fetchFeeds();
+    console.log(feeds);
     const dropdownContent = await fetchDropdownContent();
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
     const noneOption = document.createElement('a');
+    renderFeeds(feeds);
     noneOption.textContent = 'None';
     noneOption.onclick = function() {
         dropbtn.textContent = 'Selected: None';
