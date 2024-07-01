@@ -30,18 +30,21 @@
         </li>
     </ul>
 </header>
-    <div>
+    <div class="feeds">
         <table>
             <thead>
-            <tr>
+            <tr class="table-header">
                 <th>Title</th>
                 <th>Link</th>
                 <th>Color</th>
             </tr>
             </thead>
-            <tbody class="feedsTableBody">
+            <tbody id="feedsTableBody">
             </tbody>
         </table>
+        <button type="button" class="add-feed-btn" onclick="showAddDialog()">
+            Add Feed
+        </button>
     </div>
 </body>
 </html>

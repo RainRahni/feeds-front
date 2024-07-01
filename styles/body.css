@@ -27,7 +27,6 @@ body {
     transition: 0.3s;
     &:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-
     }
 }
 .card a {
@@ -69,4 +68,54 @@ body {
 .article-desc {
     font-size: 10px;
 }
-.feedsTableBody
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.feed-edit-btn {
+    border: none;
+    background-color: grey;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    &:hover {
+        background-color: white;
+    }
+}
+
+.feed-del-btn {
+    border: none;
+    background-color: #ff5757;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    &:hover {
+        background-color: white;
+    }
+}
+
+.feeds {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-feed-btn {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #71c5ff;
+    border-radius: 5px;
+}

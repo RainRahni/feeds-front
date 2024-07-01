@@ -1,4 +1,5 @@
 window.onload = async function() {
+    const path = window.location.pathname;
     const articles = await fetchArticles();
     const feeds = await fetchFeeds();
     console.log(feeds);
@@ -6,7 +7,6 @@ window.onload = async function() {
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
     const noneOption = document.createElement('a');
-    renderFeeds(feeds);
     noneOption.textContent = 'None';
     noneOption.onclick = function() {
         dropbtn.textContent = 'Selected: None';
@@ -22,7 +22,12 @@ window.onload = async function() {
         };
         dropdown.appendChild(link);
     });
-    renderArticles(articles, feeds);
+    if (path.includes('index.html')) {
+        renderArticles(articles, feeds);
+    } else if (path.includes('feedManagement.html')) {
+        renderFeeds(feeds);
+    }
+
     function filterArticles(category) {
         const filteredArticles = articles.filter(article =>
             article.categories.map(c => c.name).includes(category)

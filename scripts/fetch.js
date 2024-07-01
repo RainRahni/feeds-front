@@ -29,3 +29,39 @@ async function fetchArticleContent(link){
     }
     return response.text();
 }
+async function updateFeed(updatedFeed, feedId) {
+    console.log(updatedFeed.link);
+    const response = await fetch(`${FETCH_API_URL}/feed/${feedId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedFeed)
+    });
+    if (!response.ok) {
+        const message = `An error has occurred: ${response.status}`;
+        throw new Error(message);
+    }
+}
+async function deleteFeed(feedId) {
+    const response = await fetch(`${FETCH_API_URL}/feed/${feedId}`, {
+        method: "DELETE",
+    })
+    if (!response.ok) {
+        const message = `An error has occurred: ${response.status}`;
+        throw new Error(message);
+    }
+}
+async function createFeed(feed) {
+    const response = await fetch(`${FETCH_API_URL}/feed`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(feed)
+    });
+    if (!response.ok) {
+        const message = `An error has occurred: ${response.status}`;
+        throw new Error(message);
+    }
+}

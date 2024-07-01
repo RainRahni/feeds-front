@@ -136,8 +136,127 @@ function renderFeeds(feeds) {
         row.appendChild(linkCell);
 
         const colorCell = document.createElement('td');
-        colorCell.textContent = feed.color;
+        colorCell.style.backgroundColor = feed.hexColor;
         row.appendChild(colorCell);
         tbody.appendChild(row);
+
+        const editButton = document.createElement("button");
+        editButton.innerText = "Edit";
+        editButton.className = "feed-edit-btn";
+        editButton.onclick = function() {
+            showEditDialog(feed, feeds);
+        }
+        row.appendChild(editButton);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "feed-del-btn"
+        deleteButton.onclick = function() {
+            deleteFeed(feed.id);
+            tbody.removeChild(row);
+        }
+        row.appendChild(deleteButton);
     });
+}
+function showEditDialog(feed, feeds) {
+    const overlay = document.createElement('div');
+    overlay.className = 'dialog-overlay';
+    document.body.appendChild(overlay);
+
+    const dialog = document.createElement('div');
+    dialog.className = 'dialog-visible edit-dialog';
+
+    const titleLabel = document.createElement('label');
+    titleLabel.textContent = 'Title:';
+    const titleInput = document.createElement('input');
+    titleInput.className = "edit-input";
+    titleInput.type = 'text';
+    titleInput.value = feed.title;
+
+    const linkLabel = document.createElement('label');
+    linkLabel.textContent = 'Link:';
+    const linkInput = document.createElement('input');
+    linkInput.className = "edit-input";
+    linkInput.type = 'text';
+    linkInput.value = feed.link;
+
+
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.className = "save-btn";
+    saveButton.onclick = function() {
+        const updatedFeed = {
+            title: titleInput.value,
+            link: linkInput.value
+        }
+        feed.title = titleInput.value;
+        feed.link = linkInput.value;
+        renderFeeds(feeds);
+        updateFeed(updatedFeed, feed.id);
+        closeDialog();
+    };
+
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Cancel';
+    cancelButton.className = "cancel-btn"
+    cancelButton.onclick = function() {
+        closeDialog();
+    };
+
+    dialog.appendChild(titleLabel);
+    dialog.appendChild(titleInput);
+    dialog.appendChild(linkLabel);
+    dialog.appendChild(linkInput);
+    dialog.appendChild(saveButton);
+    dialog.appendChild(cancelButton);
+    document.body.appendChild(dialog);
+
+    function closeDialog() {
+        document.body.removeChild(dialog);
+        document.body.removeChild(overlay);
+    }
+}
+function showAddDialog() {
+    const overlay = document.createElement('div');
+    overlay.className = 'dialog-overlay';
+    document.body.appendChild(overlay);
+
+    const dialog = document.createElement('div');
+    dialog.className = 'dialog-visible edit-dialog';
+    const linkLabel = document.createElement('label');
+    linkLabel.textContent = 'Link:';
+    const linkInput = document.createElement('input');
+    linkInput.className = "edit-input";
+    linkInput.type = 'text';
+
+
+    const saveButton = document.createElement('button');
+    saveButton.textContent = 'Save';
+    saveButton.className = "save-btn";
+    saveButton.onclick = function() {
+        const newFeed = {
+            link: linkInput.value
+        }
+        console.log(newFeed);
+        createFeed(newFeed);
+        closeDialog();
+    };
+
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Cancel';
+    cancelButton.className = "cancel-btn"
+    cancelButton.onclick = function() {
+        closeDialog();
+    };
+
+    dialog.appendChild(linkLabel);
+    dialog.appendChild(linkInput);
+    dialog.appendChild(saveButton);
+    dialog.appendChild(cancelButton);
+    document.body.appendChild(dialog);
+
+    function closeDialog() {
+        document.body.removeChild(dialog);
+        document.body.removeChild(overlay);
+    }
 }
