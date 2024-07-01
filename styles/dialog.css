@@ -76,9 +76,6 @@
     &:hover {
         transform: scale(1.1);
     }
-    position: absolute;
-    top:0;
-    right: 0;
 }
 
 .edit-input {

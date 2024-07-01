@@ -6,9 +6,13 @@ function renderArticles(articles, feeds) {
         card.className = 'card';
         const imageContainer = document.createElement("div");
         imageContainer.className = "img-container";
-        card.style.backgroundColor = getColorForFeedId(article.feedId, feeds);
+        let color = getColorForFeedId(article.feedId, feeds);
+        card.style.backgroundColor = color;
         const img = document.createElement('img');
         img.src = article.imageUrl ? article.imageUrl : "assets/No-image.png";
+        img.onclick = function() {
+            openModal(article);
+        };
         imageContainer.appendChild(img);
 
         const container = document.createElement('div');
@@ -17,26 +21,31 @@ function renderArticles(articles, feeds) {
             const title = document.createElement('h4');
             title.className = "article-title";
             title.appendChild(document.createTextNode(article.title));
+            title.onclick = function() {
+                openModal(article);
+            };
             container.appendChild(title);
         }
         if (article.description) {
             const description = document.createElement('p');
             description.className = "article-desc";
             description.appendChild(document.createTextNode(article.description));
+            description.onclick = function() {
+                openModal(article);
+            };
             container.appendChild(description);
         }
         if (article.categories.length > 0) {
             const buttonDialog = document.createElement("button");
             buttonDialog.className = "categoriesButton";
+            buttonDialog.style.backgroundColor = color;
             buttonDialog.innerHTML = '<img src="../assets/to-do-list.png" alt="Open Categories"/>';
             buttonDialog.onclick = function() {
                 showCategoriesDialog(article.categories);
             };
             container.appendChild(buttonDialog);
         }
-        card.onclick = function() {
-            openModal(article);
-        };
+
         card.appendChild(imageContainer);
         card.appendChild(container);
         articlesDiv.appendChild(card);
@@ -103,9 +112,9 @@ async function openModal(article) {
         modalBody.appendChild(errorMsg);
     }
 
-    const closeButton = document.createElement('span');
+    const closeButton = document.createElement('button');
     closeButton.className = 'close-button';
-    closeButton.innerHTML = 'CLOSE';
+    closeButton.innerHTML = 'Close';
     closeButton.onclick = function () {
         overlay.style.display = 'none';
         modal.remove();
@@ -237,7 +246,6 @@ function showAddDialog() {
         const newFeed = {
             link: linkInput.value
         }
-        console.log(newFeed);
         createFeed(newFeed);
         closeDialog();
     };

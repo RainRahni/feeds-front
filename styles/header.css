@@ -6,6 +6,12 @@ header {
     flex-direction: row;
     background-color: #ff6d84;
 }
+button {
+    cursor: pointer;
+    &:hover {
+        background-color: antiquewhite;
+    }
+}
 .nav {
     display: flex;
     justify-content: space-between;
@@ -33,7 +39,6 @@ a {
     background-color: #3498db;
     color: white;
     border: none;
-    cursor: pointer;
 }
 
 .dropdown-content {
@@ -43,6 +48,8 @@ a {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    max-height: 100px;
+    overflow-y: auto;
 }
 
 .dropdown-content a {
@@ -59,6 +66,7 @@ a {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .table-header {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;

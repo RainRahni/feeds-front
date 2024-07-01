@@ -30,7 +30,6 @@ async function fetchArticleContent(link){
     return response.text();
 }
 async function updateFeed(updatedFeed, feedId) {
-    console.log(updatedFeed.link);
     const response = await fetch(`${FETCH_API_URL}/feed/${feedId}`, {
         method: 'PUT',
         headers: {
@@ -62,6 +61,9 @@ async function createFeed(feed) {
     });
     if (!response.ok) {
         const message = `An error has occurred: ${response.status}`;
+        alert(message);
         throw new Error(message);
+    } else {
+        alert(OPERATION_SUCCESSFUL_MESSAGE);
     }
 }
