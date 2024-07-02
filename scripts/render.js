@@ -10,8 +10,8 @@ function renderArticles(articles, feeds) {
         card.style.backgroundColor = color;
         const img = document.createElement('img');
         img.src = article.imageUrl ? article.imageUrl : "assets/No-image.png";
-        img.onclick = function() {
-            openModal(article);
+        img.onclick = async function() {
+            await openModal(article);
         };
         imageContainer.appendChild(img);
 
@@ -21,8 +21,8 @@ function renderArticles(articles, feeds) {
             const title = document.createElement('h4');
             title.className = "article-title";
             title.appendChild(document.createTextNode(article.title));
-            title.onclick = function() {
-                openModal(article);
+            title.onclick = async function() {
+                await openModal(article);
             };
             container.appendChild(title);
         }
@@ -30,8 +30,8 @@ function renderArticles(articles, feeds) {
             const description = document.createElement('p');
             description.className = "article-desc";
             description.appendChild(document.createTextNode(article.description));
-            description.onclick = function() {
-                openModal(article);
+            description.onclick = async function() {
+                await openModal(article);
             };
             container.appendChild(description);
         }
@@ -121,7 +121,7 @@ async function openModal(article) {
     };
 
     window.onclick = function (event) {
-        if (event.target == overlay) {
+        if (event.target === overlay) {
             overlay.style.display = 'none';
             modal.remove();
         }
@@ -160,8 +160,8 @@ function renderFeeds(feeds) {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.className = "feed-del-btn"
-        deleteButton.onclick = function() {
-            deleteFeed(feed.id);
+        deleteButton.onclick = async function() {
+            await deleteFeed(feed.id);
             tbody.removeChild(row);
         }
         row.appendChild(deleteButton);
@@ -193,7 +193,7 @@ function showEditDialog(feed, feeds) {
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     saveButton.className = "save-btn";
-    saveButton.onclick = function() {
+    saveButton.onclick = async function() {
         const updatedFeed = {
             title: titleInput.value,
             link: linkInput.value
@@ -201,7 +201,7 @@ function showEditDialog(feed, feeds) {
         feed.title = titleInput.value;
         feed.link = linkInput.value;
         renderFeeds(feeds);
-        updateFeed(updatedFeed, feed.id);
+        await updateFeed(updatedFeed, feed.id);
         closeDialog();
     };
 
@@ -242,11 +242,11 @@ function showAddDialog() {
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     saveButton.className = "save-btn";
-    saveButton.onclick = function() {
+    saveButton.onclick = async function () {
         const newFeed = {
             link: linkInput.value
         }
-        createFeed(newFeed);
+        await createFeed(newFeed);
         closeDialog();
     };
 
