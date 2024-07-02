@@ -76,13 +76,10 @@ function showCategoriesDialog(categories) {
     categoriesDialog.className = 'dialog-visible';
     createCategories(categories, categoriesDialog);
 
-    const closeButton = document.createElement('button');
-    closeButton.className = "close-button";
-    closeButton.textContent = 'Close';
-    closeButton.onclick = function() {
+    const closeButton = createCloseButton('Close', 'close-button', function() {
         categoriesDialog.className = 'dialog-hidden';
         overlay.remove();
-    };
+    });
     categoriesDialog.appendChild(closeButton);
     document.body.appendChild(categoriesDialog);
 }
@@ -112,13 +109,10 @@ async function openModal(article) {
         modalBody.appendChild(errorMsg);
     }
 
-    const closeButton = document.createElement('button');
-    closeButton.className = 'close-button';
-    closeButton.innerHTML = 'Close';
-    closeButton.onclick = function () {
+    const closeButton = createCloseButton('Close', 'close-button', function() {
         overlay.style.display = 'none';
         modal.remove();
-    };
+    });
 
     window.onclick = function (event) {
         if (event.target === overlay) {
@@ -143,6 +137,10 @@ function renderFeeds(feeds) {
         const linkCell = document.createElement('td');
         linkCell.textContent = feed.link;
         row.appendChild(linkCell);
+
+        const descCell = document.createElement('td');
+        descCell.textContent = feed.description;
+        row.appendChild(descCell);
 
         const colorCell = document.createElement('td');
         colorCell.style.backgroundColor = feed.hexColor;
@@ -205,12 +203,8 @@ function showEditDialog(feed, feeds) {
         closeDialog();
     };
 
-    const cancelButton = document.createElement('button');
-    cancelButton.textContent = 'Cancel';
-    cancelButton.className = "cancel-btn"
-    cancelButton.onclick = function() {
-        closeDialog();
-    };
+    const cancelButton = createCloseButton('Cancel', 'cancel-btn', closeDialog);
+
 
     dialog.appendChild(titleLabel);
     dialog.appendChild(titleInput);
@@ -250,12 +244,7 @@ function showAddDialog() {
         closeDialog();
     };
 
-    const cancelButton = document.createElement('button');
-    cancelButton.textContent = 'Cancel';
-    cancelButton.className = "cancel-btn"
-    cancelButton.onclick = function() {
-        closeDialog();
-    };
+    const cancelButton = createCloseButton('Cancel', 'cancel-btn', closeDialog);
 
     dialog.appendChild(linkLabel);
     dialog.appendChild(linkInput);
@@ -267,4 +256,12 @@ function showAddDialog() {
         document.body.removeChild(dialog);
         document.body.removeChild(overlay);
     }
+}
+
+function createCloseButton(text, className, onClickHandler) {
+    const button = document.createElement('button');
+    button.textContent = text;
+    button.className = className;
+    button.onclick = onClickHandler;
+    return button;
 }

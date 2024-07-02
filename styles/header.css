@@ -50,6 +50,7 @@ a {
     z-index: 1;
     max-height: 100px;
     overflow-y: auto;
+    cursor: pointer;
 }
 
 .dropdown-content a {
