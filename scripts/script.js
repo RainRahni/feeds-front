@@ -1,4 +1,4 @@
-window.onload = async function() {
+async function initializePage() {
     const path = window.location.pathname;
     const articles = await fetchArticles();
     const feeds = await fetchFeeds();
@@ -34,3 +34,4 @@ window.onload = async function() {
         renderArticles(filteredArticles, feeds);
     }
 };
+await initializePage();
