@@ -34,4 +34,4 @@ async function initializePage() {
         renderArticles(filteredArticles, feeds);
     }
 };
-await initializePage();
+initializePage();
