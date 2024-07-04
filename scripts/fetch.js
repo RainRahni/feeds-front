@@ -27,11 +27,9 @@ async function fetchDropdownContent() {
 async function fetchArticleContent(link){
     const encodedLink = encodeURIComponent(link);
     const response = await fetch(`${FETCH_API_URL}/article/content?link=${encodedLink}`)
-    if (!response.ok) {
-        let text = await response.text();
-        alert(text);
+    if (response.ok) {
+        return response.text();
     }
-    return response.text();
 }
 async function updateFeed(updatedFeed, feedId) {
     const response = await fetch(`${FETCH_API_URL}/feed/${feedId}`, {
