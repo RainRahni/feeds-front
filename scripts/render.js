@@ -9,7 +9,7 @@ function renderArticles(articles, feeds) {
         const color = getColorForFeedId(article.feedId, feeds);
         card.style.backgroundColor = color;
         const img = document.createElement('img');
-        img.src = article.imageUrl ? article.imageUrl : "../assets/No-image.png";
+        img.src = article.imageUrl ? article.imageUrl : "../assets/NoImage.png";
         img.onclick = async function() {
             await openModal(article);
         };
