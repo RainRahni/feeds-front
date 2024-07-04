@@ -29,34 +29,42 @@ body {
     }
     overflow: auto;
 }
+
 .card a {
     text-decoration: none;
     color: black;
     transition: color 0.3s ease;
 
 }
+
 .text-container {
     flex: 1;
     width: 50%;
     padding: 10px;
 }
+
 .container {
     padding: 0 10px 10px;
 }
+
 .card img {
     width: 50%;
     height: 200px;
 }
+
 .img-container {
     display: flex;
     flex-direction: column;
 }
+
 .img-container img {
     width: 100%;
 }
+
 .text-container h4 {
     margin: 0 0 10px;
 }
+
 .text-container p {
     margin: 0;
 }
@@ -65,9 +73,11 @@ body {
     margin: 5px;
     font-size: 14px;
 }
+
 .article-desc {
     font-size: 10px;
 }
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -112,6 +122,7 @@ th {
     justify-content: center;
     align-items: center;
 }
+
 .add-feed-btn {
     margin: 5px;
     padding: 10px;

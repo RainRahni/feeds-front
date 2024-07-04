@@ -17,6 +17,7 @@
     box-sizing: border-box;
     border-radius: 8px;
 }
+
 .dialog-overlay {
     position: fixed;
     top: 0;
@@ -29,9 +30,11 @@
     justify-content: center;
     z-index: 999;
 }
+
 .dialog-hidden {
     display: none;
 }
+
 .modal-content {
     background: #fff;
     border-radius: 8px;
@@ -41,10 +44,12 @@
     overflow: auto;
     resize: both;
 }
+
 .modal-body {
     max-height: calc(100vh - 150px);
     overflow-y: auto;
 }
+
 .category {
     width: fit-content;
     height: fit-content;
@@ -56,6 +61,7 @@
     }
     font-size: 16px;
 }
+
 .close-button {
      background-color: grey;
      float: right;
@@ -64,12 +70,14 @@
          color: white;
          text-decoration: none;
      }
- }
+}
+
 .categoriesButton {
     width: fit-content;
     height: fit-content;
     border: none;
 }
+
 .categoriesButton img {
     width: 20px;
     height: 20px;

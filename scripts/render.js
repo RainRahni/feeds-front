@@ -6,7 +6,7 @@ function renderArticles(articles, feeds) {
         card.className = 'card';
         const imageContainer = document.createElement("div");
         imageContainer.className = "img-container";
-        let color = getColorForFeedId(article.feedId, feeds);
+        const color = getColorForFeedId(article.feedId, feeds);
         card.style.backgroundColor = color;
         const img = document.createElement('img');
         img.src = article.imageUrl ? article.imageUrl : "assets/No-image.png";
