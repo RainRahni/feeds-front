@@ -105,7 +105,7 @@ async function openModal(article) {
         modalBody.appendChild(content);
     } catch (error) {
         const errorMsg = document.createElement('p');
-        errorMsg.textContent = `Failed to load article content: ${error.message}`;
+        errorMsg.textContent = `Failed to load article content`;
         modalBody.appendChild(errorMsg);
     }
 
