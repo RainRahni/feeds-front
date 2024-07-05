@@ -1,8 +1,8 @@
-document.onload =  function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const path = window.location.pathname;
-    const articles =  fetchArticles();
-    const feeds =  fetchFeeds();
-    const dropdownContent =  fetchDropdownContent();
+    const articles = await fetchArticles();
+    const feeds = await fetchFeeds();
+    const dropdownContent = await fetchDropdownContent();
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
     const noneOption = document.createElement('a');
@@ -33,4 +33,4 @@ document.onload =  function() {
     );
         renderArticles(filteredArticles, feeds);
     }
-};
+});
