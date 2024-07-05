@@ -1,6 +1,6 @@
 window.onload = async function() {
     const path = window.location.pathname;
-    const articles = await fetchArticles();
+    const articles = fetchArticles();
     const feeds = await fetchFeeds();
     const dropdownContent = await fetchDropdownContent();
     const dropdown = document.querySelector('.dropdown-content');

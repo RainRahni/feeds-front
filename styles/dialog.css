@@ -101,13 +101,5 @@
     background-color: #71c5ff;
     border: none;
     border-radius: 5px;
-    padding: 5px;
-}
-
-.cancel-btn {
-    margin: 5px;
-    background-color: grey;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
 }

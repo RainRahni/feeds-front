@@ -203,7 +203,7 @@ function showEditDialog(feed, feeds) {
         closeDialog();
     };
 
-    const cancelButton = createCloseButton('Cancel', 'cancel-btn', closeDialog);
+    const cancelButton = createCloseButton('Cancel', 'close-btn', closeDialog);
 
 
     dialog.appendChild(titleLabel);
@@ -244,7 +244,7 @@ function showAddDialog() {
         closeDialog();
     };
 
-    const cancelButton = createCloseButton('Cancel', 'cancel-btn', closeDialog);
+    const cancelButton = createCloseButton('Cancel', 'close-btn', closeDialog);
 
     dialog.appendChild(linkLabel);
     dialog.appendChild(linkInput);
