@@ -1,8 +1,8 @@
-document.onload = async function() {
+document.onload =  function() {
     const path = window.location.pathname;
-    const articles = await fetchArticles();
-    const feeds = await fetchFeeds();
-    const dropdownContent = await fetchDropdownContent();
+    const articles =  fetchArticles();
+    const feeds =  fetchFeeds();
+    const dropdownContent =  fetchDropdownContent();
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
     const noneOption = document.createElement('a');
