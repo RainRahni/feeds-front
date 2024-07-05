@@ -109,7 +109,7 @@ async function openModal(article) {
         modalBody.appendChild(errorMsg);
     }
 
-    const closeButton = createCloseButton('Close', 'close-button', function() {
+    const closeButton = createCloseButton('Close', 'close-btn', function() {
         overlay.style.display = 'none';
         modal.remove();
     });
@@ -258,10 +258,10 @@ function showAddDialog() {
     }
 }
 
-function createCloseButton(text, className, onClickHandler) {
+function createCloseButton(text, idName, onClickHandler) {
     const button = document.createElement('button');
     button.textContent = text;
-    button.className = className;
+    button.id = idName;
     button.onclick = onClickHandler;
     return button;
 }

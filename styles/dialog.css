@@ -62,14 +62,18 @@
     font-size: 16px;
 }
 
-.close-button {
-     background-color: grey;
-     float: right;
-     font-size: 20px;
-     &:hover {
-         color: white;
-         text-decoration: none;
-     }
+#close-btn {
+    all: unset;
+    background-color: grey;
+    width: fit-content;
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    border-radius: 5px;
+    &:hover {
+        color: white;
+        text-decoration: none;
+    }
 }
 
 .categoriesButton {
