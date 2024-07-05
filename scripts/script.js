@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function() {
+window.onload = async function() {
     const path = window.location.pathname;
     const articles = await fetchArticles();
     const feeds = await fetchFeeds();
@@ -33,4 +33,4 @@ document.addEventListener("DOMContentLoaded", async function() {
     );
         renderArticles(filteredArticles, feeds);
     }
-});
+};
