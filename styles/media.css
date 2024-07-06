@@ -12,13 +12,12 @@
     tbody tr td {
         display: block;
         text-align: center;
-    }
-
-    tbody tr td:before {
-        content: attr(data-label);
-        float: left;
-        text-transform: uppercase;
-        font-weight: bold;
+        &:before {
+            content: attr(data-label);
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
     }
 
     #articles {

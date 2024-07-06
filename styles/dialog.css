@@ -1,7 +1,6 @@
 .dialog-visible {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: fixed;
     top: 50%;
@@ -9,12 +8,10 @@
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
-    border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     width: 80%;
     max-width: 400px;
-    box-sizing: border-box;
     border-radius: 8px;
 }
 
@@ -62,7 +59,7 @@
     font-size: 16px;
 }
 
-#close-btn {
+.close-btn {
     all: unset;
     background-color: grey;
     width: fit-content;
@@ -70,10 +67,12 @@
     padding: 5px;
     color: black;
     border-radius: 5px;
+    cursor: pointer;
     &:hover {
         color: white;
         text-decoration: none;
     }
+
 }
 
 .categoriesButton {

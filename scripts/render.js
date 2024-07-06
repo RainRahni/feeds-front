@@ -205,7 +205,6 @@ function showEditDialog(feed, feeds) {
 
     const closeButton = createCloseButton('Close', 'close-btn', closeDialog);
 
-
     dialog.appendChild(titleLabel);
     dialog.appendChild(titleInput);
     dialog.appendChild(linkLabel);
@@ -258,10 +257,10 @@ function showAddDialog() {
     }
 }
 
-function createCloseButton(text, idName, onClickHandler) {
+function createCloseButton(text, className, onClickHandler) {
     const button = document.createElement('button');
     button.textContent = text;
-    button.id = idName;
+    button.className = className;
     button.onclick = onClickHandler;
     return button;
 }
