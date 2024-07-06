@@ -76,7 +76,7 @@ function showCategoriesDialog(categories) {
     categoriesDialog.className = 'dialog-visible';
     createCategories(categories, categoriesDialog);
 
-    const closeButton = createCloseButton('Close', 'close-button', function() {
+    const closeButton = createCloseButton('Close', 'close-btn', function() {
         categoriesDialog.className = 'dialog-hidden';
         overlay.remove();
     });
@@ -203,7 +203,7 @@ function showEditDialog(feed, feeds) {
         closeDialog();
     };
 
-    const cancelButton = createCloseButton('Cancel', 'close-btn', closeDialog);
+    const closeButton = createCloseButton('Close', 'close-btn', closeDialog);
 
 
     dialog.appendChild(titleLabel);
@@ -211,7 +211,7 @@ function showEditDialog(feed, feeds) {
     dialog.appendChild(linkLabel);
     dialog.appendChild(linkInput);
     dialog.appendChild(saveButton);
-    dialog.appendChild(cancelButton);
+    dialog.appendChild(closeButton);
     document.body.appendChild(dialog);
 
     function closeDialog() {
@@ -244,12 +244,12 @@ function showAddDialog() {
         closeDialog();
     };
 
-    const cancelButton = createCloseButton('Cancel', 'close-btn', closeDialog);
+    const closeButton = createCloseButton('Close', 'close-btn', closeDialog);
 
     dialog.appendChild(linkLabel);
     dialog.appendChild(linkInput);
     dialog.appendChild(saveButton);
-    dialog.appendChild(cancelButton);
+    dialog.appendChild(closeButton);
     document.body.appendChild(dialog);
 
     function closeDialog() {
