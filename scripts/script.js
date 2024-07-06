@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function() {
     const path = window.location.pathname;
-    const articles = await fetchArticles();
-    const feeds = await fetchFeeds();
-    console.log(articles);
-    console.log(feeds);
-    const dropdownContent = await fetchDropdownContent();
+    const [articles, feeds, dropdownContent] = await Promise.all([
+        fetchArticles(),
+        fetchFeeds(),
+        fetchDropdownContent()
+    ]);
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
     const noneOption = document.createElement('a');
