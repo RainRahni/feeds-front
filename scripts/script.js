@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", async function() {
         };
         dropdown.appendChild(link);
     });
-    if (!path.includes('feedManagement.html')) {
-        renderArticles(articles, feeds);
-    } else {
+    if (path.includes('feedManagement.html')) {
         renderFeeds(feeds);
+    } else {
+        renderArticles(articles, feeds);
     }
 
     function filterArticles(category) {
