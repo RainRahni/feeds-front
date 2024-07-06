@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     const path = window.location.pathname;
     const articles = await fetchArticles();
     const feeds = await fetchFeeds();
-    console.log(articles.length);
-    console.log(feeds.length);
+    console.log(articles);
+    console.log(feeds);
     const dropdownContent = await fetchDropdownContent();
     const dropdown = document.querySelector('.dropdown-content');
     const dropbtn = document.querySelector('.dropbtn');
