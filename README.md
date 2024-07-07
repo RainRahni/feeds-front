@@ -11,4 +11,8 @@ filter articles by categories on the nav bar.
 2. Navigate to the project directory in your terminal.
 3. Open the `index.html` file in your web browser.
 
+
+Deployed website takes ~5 minutes to start, because renders shuts it down due to inactivity.
+Deployed website: https://lolov5.onrender.com
+
 (if you want to run both front and back locally change the FETCH_API_URL to http://localhost:8080)
