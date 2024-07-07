@@ -62,10 +62,10 @@ async function createFeed(feed) {
         },
         body: JSON.stringify(feed)
     });
-    if (!response.ok) {
+    if (response.ok) {
+        alert(OPERATION_SUCCESSFUL_MESSAGE);
+    } else {
         let text = await response.text();
         alert(text);
-    } else {
-        alert(OPERATION_SUCCESSFUL_MESSAGE);
     }
 }
